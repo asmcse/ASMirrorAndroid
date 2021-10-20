@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/main_after_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include android:id="@+id/main_toolbar"
+        layout="@layout/toolbar_layout"/>
+
+    <!-- whole body -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/main_toolbar">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <!-- user section -->
+                <LinearLayout
+                    android:id="@+id/main_user_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/custom_button">
+
+                    <!-- user info section -->
+                    <LinearLayout
+                        android:id="@+id/main_user_profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:orientation="horizontal">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/main_user_image"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/user"
+                            app:civ_border_color="@color/colorWhite"
+                            app:civ_border_width="2dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/main_user_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/loading"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/make_life_smarter"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_right"
+                            app:tint="@color/colorWhite"/>
+
+                    </LinearLayout>
+
+                    <!-- mirror info section -->
+                    <LinearLayout
+                        android:id="@+id/main_mirror_section"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:divider="@drawable/horizontal_divider"
+                        android:showDividers="beginning"
+                        android:dividerPadding="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="10dp"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mirror_id"
+                                android:textColor="@color/colorBlack"
+                                android:textAlignment="center"/>
+
+                            <TextView
+                                android:id="@+id/main_user_mirror_id"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/loading"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorWhite"
+                                android:textAlignment="center"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- mirror menu section -->
+                <LinearLayout
+                    android:id="@+id/main_mirror_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/main_user_section"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <!-- mirror section header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:weightSum="10">
+
+                        <TextView
+                            android:id="@+id/main_mirror_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="10"
+                            android:padding="5dp"
+                            android:text="@string/app_name"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorPrimary"/>
+
+                        <TextView
+                            android:id="@+id/main_mirror_change"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:padding="5dp"
+                            android:text="@string/change"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/custom_button"
+                            android:drawableRight="@drawable/ic_right"
+                            android:drawableTint="@android:color/white"/>
+
+                    </LinearLayout>
+
+                    <!-- mirror section first row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/main_card_mirror_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:padding="8dp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:background="@drawable/custom_input">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_add_circle"
+                                    app:tint="@color/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/add_mirror"
+                                    android:textColor="@android:color/black"
+                                    android:textAlignment="center"/>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/main_card_mirror_turn_on"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/custom_input"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_objects"
+                                    app:tint="@color/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/turn_on"
+                                    android:textColor="@android:color/black"
+                                    android:textAlignment="center" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/main_card_mirror_turn_off"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/custom_input"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_power"
+                                    app:tint="@color/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/turn_off"
+                                    android:textColor="@android:color/black"
+                                    android:textAlignment="center" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <!-- group section second row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/main_card_mirror_reboot"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/custom_input"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_reboot"
+                                    app:tint="@color/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/reboot"
+                                    android:textColor="@android:color/black"
+                                    android:textAlignment="center" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/main_card_mirror_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/custom_input"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_help"
+                                    app:tint="@color/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/information"
+                                    android:textColor="@android:color/black"
+                                    android:textAlignment="center" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/main_card_mirror_setting"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            app:cardCornerRadius="4dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/custom_input"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:padding="8dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_settings"
+                                    app:tint="@color/colorPrimary" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/settings"
+                                    android:textColor="@android:color/black"
+                                    android:textAlignment="center" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>
